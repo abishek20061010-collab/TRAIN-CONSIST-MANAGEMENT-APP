@@ -1,37 +1,46 @@
-import java.util.HashSet;
-import java.util.Set;
+import java.util.LinkedList;
 
 /**
  * ============================================================
  * MAIN CLASS - TrainConsistManagementApp
  * ============================================================
  *
- * Use Case 3: Track Unique Bogie IDs using HashSet
+ * Use Case 4: Maintain Ordered Train Consist using LinkedList
  *
  * @author Developer
- * @version 3.0
+ * @version 4.0
  */
 
 public class TrainConsistManagementApp {
 
     public static void main(String[] args) {
 
-        System.out.println("===== Train Consist Management App v3.0 =====");
+        System.out.println("===== Train Consist Management App v4.0 =====");
 
-        // Create HashSet for bogie IDs (unique values only)
-        Set<String> bogieIds = new HashSet<>();
+        // Create LinkedList for train consist
+        LinkedList<String> train = new LinkedList<>();
 
-        // ADD bogie IDs (including duplicates)
-        bogieIds.add("BG101");
-        bogieIds.add("BG102");
-        bogieIds.add("BG103");
-        bogieIds.add("BG101"); // duplicate
-        bogieIds.add("BG102"); // duplicate
+        // ADD bogies
+        train.add("Engine");
+        train.add("Sleeper");
+        train.add("AC");
+        train.add("Cargo");
+        train.add("Guard");
 
-        System.out.println("Bogie IDs after insertion (duplicates ignored):");
-        System.out.println(bogieIds);
+        System.out.println("Initial Train Consist:");
+        System.out.println(train);
 
-        // Display total unique bogies
-        System.out.println("\nTotal unique bogies: " + bogieIds.size());
+        // INSERT Pantry Car at position 2
+        train.add(2, "Pantry");
+
+        System.out.println("\nAfter inserting Pantry at position 2:");
+        System.out.println(train);
+
+        // REMOVE first and last
+        train.removeFirst();
+        train.removeLast();
+
+        System.out.println("\nAfter removing first and last bogie:");
+        System.out.println(train);
     }
 }
