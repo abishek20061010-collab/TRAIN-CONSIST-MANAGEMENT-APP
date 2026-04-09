@@ -1,40 +1,41 @@
-import java.util.LinkedHashSet;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * ============================================================
  * MAIN CLASS - TrainConsistManagementApp
  * ============================================================
  *
- * UC5: Preserve Insertion Order of Bogies (LinkedHashSet)
+ * UC6: Map Bogie to Capacity (HashMap)
  *
  * Description:
- * Demonstrates how LinkedHashSet maintains insertion order
- * while preventing duplicate bogies in train formation.
+ * Demonstrates mapping between bogie name and its capacity
+ * using HashMap (key-value structure).
  *
  * @author Abishek
- * @version 5.0
+ * @version 6.0
  */
 
 public class TrainConsistManagementApp {
 
     public static void main(String[] args) {
 
-        System.out.println("===== Train Consist Management App v5.0 =====");
+        System.out.println("===== Train Consist Management App v6.0 =====");
 
-        // LinkedHashSet to maintain order + uniqueness
-        LinkedHashSet<String> trainFormation = new LinkedHashSet<>();
+        // Create HashMap for bogie → capacity
+        HashMap<String, Integer> bogieCapacityMap = new HashMap<>();
 
-        // Adding bogies
-        trainFormation.add("Engine");
-        trainFormation.add("Sleeper");
-        trainFormation.add("Cargo");
-        trainFormation.add("Guard");
+        // Adding entries (Bogie → Capacity)
+        bogieCapacityMap.put("Sleeper", 72);
+        bogieCapacityMap.put("AC Chair", 60);
+        bogieCapacityMap.put("First Class", 40);
 
-        // Adding duplicate (will be ignored)
-        trainFormation.add("Sleeper");
+        // Display data using entrySet()
+        System.out.println("Bogie Capacity Details:");
 
-        // Display final formation
-        System.out.println("Train Formation (No duplicates, Ordered):");
-        System.out.println(trainFormation);
+        for (Map.Entry<String, Integer> entry : bogieCapacityMap.entrySet()) {
+            System.out.println("Bogie: " + entry.getKey() +
+                               " | Capacity: " + entry.getValue());
+        }
     }
 }
